@@ -17,11 +17,20 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @PostMapping("/add")
+    @PostMapping("/add2")
     @ResponseStatus(HttpStatus.CREATED)
     public void saveAll(@RequestBody List<Product> listProduct){
         productService.saveAll(listProduct);
     }
+    @PostMapping("/add1")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void saveOne(@RequestBody Product product){
+        productService.saveOne(product);
+    }
 
+    @GetMapping
+    public List<Product> findAll(){
+        return productService.findAll();
+    }
 
 }

@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class ProductService {
@@ -17,17 +16,22 @@ public class ProductService {
     }
 
     //Método será usado para implementar JSON de produtos no sistema web, para usos reais teriamos um list direto do BD.
-    public void saveAll(List<Product> productList){
-         productRepository.saveAll(productList);
+
+    public Product saveOne(Product product){
+        return productRepository.save(product);
+    }
+
+    public List<Product> saveAll(List<Product> productList){
+         return productRepository.saveAll(productList);
     }
 
     public List<Product> findAll(){
         return productRepository.findAll();
     }
 
-    public List<Product> findByStack(String stack){
+    public List<Product> findByStack(String stacks){
 
-        return productRepository.findByStack(stack);
+        return productRepository.findByStacks(stacks);
 
     }
 

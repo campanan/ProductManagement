@@ -8,6 +8,6 @@ import java.util.Stack;
 
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
-    public List<Product> findByStack(String stack);
+    public List<Product> findByStacks(String stacks);
 
 }

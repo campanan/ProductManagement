@@ -21,7 +21,7 @@ public class Product {
     String targetMarket;
 
     @Column(nullable = false)
-    String Stacks;
+    String stacks;
 
     public Product() {
     }
@@ -30,7 +30,7 @@ public class Product {
         this.name = name;
         this.description = description;
         this.targetMarket = targetMarket;
-        Stacks = stacks;
+        this.stacks = stacks;
     }
 
     public long getId() {
@@ -66,10 +66,10 @@ public class Product {
     }
 
     public String getStacks() {
-        return Stacks;
+        return stacks;
     }
 
     public void setStacks(String stacks) {
-        Stacks = stacks;
+        this.stacks = stacks;
     }
 }
