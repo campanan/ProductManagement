@@ -22,6 +22,7 @@ public class ProductController {
     public void saveAll(@RequestBody List<Product> listProduct){
         productService.saveAll(listProduct);
     }
+
     @PostMapping("/add1")
     @ResponseStatus(HttpStatus.CREATED)
     public void saveOne(@RequestBody Product product){
