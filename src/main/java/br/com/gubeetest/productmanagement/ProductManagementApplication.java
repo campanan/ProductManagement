@@ -1,4 +1,4 @@
-package br.com.gubeetest.ProductManagement;
+package br.com.gubeetest.productmanagement;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
