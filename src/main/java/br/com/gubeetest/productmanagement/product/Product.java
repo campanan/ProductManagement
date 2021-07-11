@@ -1,8 +1,8 @@
 package br.com.gubeetest.productmanagement.product;
 
-import io.micrometer.core.lang.Nullable;
-
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Product {
@@ -12,25 +12,27 @@ public class Product {
     long id;
 
     @Column(nullable = false)
-    String name;
+    String productName;
 
     @Column(nullable = false)
     String description;
 
     @Column(nullable = false)
-    String targetMarket;
+    @ElementCollection
+    List<String> targetMarket;
 
     @Column(nullable = false)
-    String stacks;
+    @ElementCollection
+    List<String> stack = new ArrayList<>();
 
     public Product() {
     }
 
-    public Product(String name, String description, String targetMarket, String stacks) {
-        this.name = name;
+    public Product(String productName, String description, List<String> targetMarket, List<String> stack) {
+        this.productName = productName;
         this.description = description;
         this.targetMarket = targetMarket;
-        this.stacks = stacks;
+        this.stack = stack;
     }
 
     public long getId() {
@@ -41,12 +43,12 @@ public class Product {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getProductName() {
+        return productName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
     public String getDescription() {
@@ -57,19 +59,19 @@ public class Product {
         this.description = description;
     }
 
-    public String getTargetMarket() {
+    public List<String> getTargetMarket() {
         return targetMarket;
     }
 
-    public void setTargetMarket(String targetMarket) {
+    public void setTargetMarket(List<String> targetMarket) {
         this.targetMarket = targetMarket;
     }
 
-    public String getStacks() {
-        return stacks;
+    public List<String> getStack() {
+        return stack;
     }
 
-    public void setStacks(String stacks) {
-        this.stacks = stacks;
+    public void setStack(List<String> stack) {
+        this.stack = stack;
     }
 }

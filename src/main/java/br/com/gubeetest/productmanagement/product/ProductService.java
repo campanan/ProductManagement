@@ -1,6 +1,9 @@
 package br.com.gubeetest.productmanagement.product;
 
+import org.hibernate.internal.util.collections.Stack;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.jpa.domain.JpaSort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,11 +19,6 @@ public class ProductService {
     }
 
     //Método será usado para implementar JSON de produtos no sistema web, para usos reais teriamos um list direto do BD.
-
-    public Product saveOne(Product product){
-        return productRepository.save(product);
-    }
-
     public List<Product> saveAll(List<Product> productList){
          return productRepository.saveAll(productList);
     }
@@ -29,12 +27,9 @@ public class ProductService {
         return productRepository.findAll();
     }
 
-    public List<Product> findByStack(String stacks){
-
-        return productRepository.findByStacks(stacks);
-
+    public List<Product> findAllByOrderByStack(){
+        return productRepository.findAllByOrderByStack();
     }
-
 
 
 
