@@ -19,10 +19,12 @@ public class Product {
 
     @Column(nullable = false)
     @ElementCollection
+    @CollectionTable(name = "product_target_market", joinColumns = @JoinColumn(name = "product_id"))
     List<String> targetMarket;
 
     @Column(nullable = false)
     @ElementCollection
+    @CollectionTable(name = "product_stack", joinColumns = @JoinColumn(name = "product_id"))
     List<String> stack = new ArrayList<>();
 
     public Product() {

@@ -15,7 +15,17 @@ import static org.hibernate.sql.ast.Clause.WHERE;
 
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
-    List<Product> findAllByOrderByStack();
+    List<Product> findAllByStack(String stack);
+
+    List<Product> findAllByTargetMarket(String targetMarket);
+
+
+    @Query(value = "SELECT DISTINCT stack FROM product_stack", nativeQuery = true)
+    List<String> findAllStacksAvaliables();
+
+    @Query(value = "SELECT DISTINCT target_market FROM product_target_market", nativeQuery = true)
+    List<String> findAllTargetMarketAvaliables();
+
 }
 
 

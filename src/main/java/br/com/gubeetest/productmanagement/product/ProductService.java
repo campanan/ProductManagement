@@ -27,10 +27,19 @@ public class ProductService {
         return productRepository.findAll();
     }
 
-    public List<Product> findAllByOrderByStack(){
-        return productRepository.findAllByOrderByStack();
+    public List<Product> findAllByStack(String stack){
+        return productRepository.findAllByStack(stack);
     }
 
+    public List<String> findAllStacksAvaliables(){
+        return productRepository.findAllStacksAvaliables();
+    }
 
+    public List<Product> findAllByTargetMarket(String targetMarket){
+        return productRepository.findAllByTargetMarket(targetMarket);
+    }
 
+    public List<String> findAllTargetMarketAvaliables(){
+        return productRepository.findAllTargetMarketAvaliables();
+    }
 }

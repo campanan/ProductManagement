@@ -29,10 +29,28 @@ public class ProductController {
         return productService.findAll();
     }
 
-    @GetMapping("/stack")
-    public List<Product> FindAllByOrderByStack(){
-        return productService.findAllByOrderByStack();
+
+    @GetMapping("/stack/{[stack]}")
+    public List<Product> findAllByStack(@PathVariable("stack") String stack){
+        return productService.findAllByStack(stack);
     }
+
+    @GetMapping("/stacksused")
+    public List<String> findAllStacksAvaliables(){
+        return productService.findAllStacksAvaliables();
+    }
+
+    @GetMapping("/targetMarketUsed")
+    public List<String> findAllTargetMarketAvaliables(){
+        return productService.findAllTargetMarketAvaliables();
+    }
+
+    @GetMapping("/targetMarket/{targetMarket}")
+    public List<Product> findAllByTargetMarket(@PathVariable("targetMarket") String targetMarket){
+        return productService.findAllByTargetMarket(targetMarket);
+    }
+
+
 
 
 }
