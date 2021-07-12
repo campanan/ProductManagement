@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/v1/products")
 public class ProductController {
@@ -35,17 +36,17 @@ public class ProductController {
         return productService.findAllByStack(stack);
     }
 
-    @GetMapping("/stacksused")
+    @GetMapping("/stacks-used")
     public List<String> findAllStacksAvaliables(){
         return productService.findAllStacksAvaliables();
     }
 
-    @GetMapping("/targetMarketUsed")
+    @GetMapping("/target-market-used")
     public List<String> findAllTargetMarketAvaliables(){
         return productService.findAllTargetMarketAvaliables();
     }
 
-    @GetMapping("/targetMarket/{targetMarket}")
+    @GetMapping("/target-market/{targetMarket}")
     public List<Product> findAllByTargetMarket(@PathVariable("targetMarket") String targetMarket){
         return productService.findAllByTargetMarket(targetMarket);
     }
