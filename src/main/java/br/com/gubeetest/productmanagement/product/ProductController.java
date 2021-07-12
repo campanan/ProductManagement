@@ -9,7 +9,7 @@ import java.util.List;
 @CrossOrigin
 @RestController
 @RequestMapping("/api/v1/products")
-public class ProductController {
+public class ProductController implements ProductControllerDocs {
 
     private ProductService productService;
 
@@ -36,7 +36,7 @@ public class ProductController {
         return productService.findAllByStack(stack);
     }
 
-    @GetMapping("/stacks-used")
+    @GetMapping("/stack-used")
     public List<String> findAllStacksAvaliables(){
         return productService.findAllStacksAvaliables();
     }
