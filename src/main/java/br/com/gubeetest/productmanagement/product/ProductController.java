@@ -31,7 +31,7 @@ public class ProductController {
     }
 
 
-    @GetMapping("/stack/{[stack]}")
+    @GetMapping("/stack/{stack}")
     public List<Product> findAllByStack(@PathVariable("stack") String stack){
         return productService.findAllByStack(stack);
     }
